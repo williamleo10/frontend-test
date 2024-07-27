@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -19,30 +15,34 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #FFFFFF;
   font-family: var(--font-family) !important;
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
   color: #000000;
+  margin: 0;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* a */
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* p */
+p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* h1 - h6 */
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   font-weight: 600;
   line-height: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 h1, .h1 {
@@ -145,8 +145,16 @@ h6, .h6 {
   color: #5D6372 !important;
 }
 
+.color-3 {
+  color: #B7BDC9 !important;
+}
+
 /* Margin */
 /* Margin Top */
+.mt-0 {
+  margin-top: 0;
+}
+
 .mt-1 {
   margin-top: 1rem;
 }
@@ -168,6 +176,10 @@ h6, .h6 {
 }
 
 /* Margin Bottom */
+.mb-0 {
+  margin-bottom: 0;
+}
+
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -194,7 +206,7 @@ h6, .h6 {
 }
 
 .menu-bar {
-  width: 4.25rem;
+  width: max-content;
   height: 100vh;
   padding: 1.25rem;
   background: #1A0931;
@@ -224,12 +236,12 @@ h6, .h6 {
 }
 
 .card-base {
-  flex: 1 1 calc(25% - 1rem);
+  flex: 1 1 calc(20% - 1rem);
   background: #FEFEFF;
   border: #F2F2F4 1px solid;
   height: max-content;
   width: auto;
-  padding: 1.5rem 1rem;
+  padding: 1.25rem 1rem;
   border-radius: .25rem;
 }
 
@@ -238,6 +250,54 @@ h6, .h6 {
   border: #E4E4E8 1px solid;
   height: max-content;
   width: auto;
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: .25rem;
+}
+
+/* @media (max-width: 1200px) {
+  .card-base {
+    flex: 1 1 calc(33.33% - 1rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .card-base {
+    flex: 1 1 calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .card-base {
+    flex: 1 1 100%;
+  }
+} */
+
+.progress-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.weight-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: .5rem;
+}
+
+.more-icon {
+  margin-left: auto;
+  justify-content: end;
+}
+
+.new-task-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.plus-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: .5rem;
 }
