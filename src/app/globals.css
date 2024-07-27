@@ -31,3 +31,18 @@ body {
     text-wrap: balance;
   }
 }
+
+.menu-bar {
+  width: 4.25rem;
+  height: 100vh;
+  padding: 1.25rem 1.25rem;
+  background: #1A0931;
+  justify-items: center;
+  align-items: center;
+}
+
+.logo-container {
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+}
