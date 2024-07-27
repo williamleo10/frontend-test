@@ -1,12 +1,11 @@
 import MenuBar from "@/components/menu";
+import Roadmap from "@/components/roadmap";
 
 export default function Home() {
   return (
-    <>
+    <div className="main-container">
       <MenuBar/>
-    </>
-
-    // <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    // </main>
+      <Roadmap/>
+    </div>
   );
 }
