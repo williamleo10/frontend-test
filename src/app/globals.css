@@ -33,6 +33,12 @@ body {
   color: #000000;
 }
 
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
 /* h1 - h6 */
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   font-weight: 600;
@@ -113,6 +119,24 @@ h6, .h6 {
   font-weight: 900;
 }
 
+/* Font Height */
+.h-18 {
+  line-height: 1.125rem;
+}
+
+.h-20 {
+  line-height: 1.25rem;
+}
+
+.h-22 {
+  line-height: 1.375rem;
+}
+
+.h-24 {
+  line-height: 1.5rem;
+}
+
+/* Font & Symbol Color */
 .color-1 {
   color: #2F3136 !important;
 }
@@ -121,10 +145,47 @@ h6, .h6 {
   color: #5D6372 !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Margin */
+/* Margin Top */
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-3 {
+  margin-top: 3rem;
+}
+
+.mt-4 {
+  margin-top: 4rem;
+}
+
+.mt-5 {
+  margin-top: 5rem;
+}
+
+/* Margin Bottom */
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+.mb-5 {
+  margin-bottom: 5rem;
 }
 
 .main-container {
@@ -135,7 +196,7 @@ h6, .h6 {
 .menu-bar {
   width: 4.25rem;
   height: 100vh;
-  padding: 1.25rem 1.25rem;
+  padding: 1.25rem;
   background: #1A0931;
   justify-items: center;
   align-items: center;
@@ -151,5 +212,32 @@ h6, .h6 {
   width: 100%;
   height: 100vh;
   background: #FFFFFF;
-  padding: 1.5rem 3rem;
+  padding: 1.25rem 3rem;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  height: max-content;
+}
+
+.card-base {
+  flex: 1 1 calc(25% - 1rem);
+  background: #FEFEFF;
+  border: #F2F2F4 1px solid;
+  height: max-content;
+  width: auto;
+  padding: 1.5rem 1rem;
+  border-radius: .25rem;
+}
+
+.card-inner {
+  background: #FFFFFF;
+  border: #E4E4E8 1px solid;
+  height: max-content;
+  width: auto;
+  padding: 1.5rem;
+  border-radius: .25rem;
 }
