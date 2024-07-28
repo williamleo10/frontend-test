@@ -52,6 +52,7 @@ export default function RoadmapCard() {
 
     return (
         <>
+            {/* Product Roadmap Card */}
             <div className="card-container">
                 {cardData.map((card, index) => (
                     <div key={index} className="card-base">
@@ -80,7 +81,8 @@ export default function RoadmapCard() {
                     </div>
                 ))}
             </div>
-
+            
+            {/* Pop Up */}
             {isPopupVisible && (
                 <div className={`pop-up ${isPopupVisible ? '' : 'hidden'}`}>
                     <div className="pop-up-container">
