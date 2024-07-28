@@ -1,4 +1,19 @@
+"use client";
+
+import { useState } from "react";
+
 export default function RoadmapCard() {
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+    const togglePopup = () => {
+        setIsPopupVisible(!isPopupVisible);
+        if (!isPopupVisible) {
+            document.body.classList.add("no-scroll");
+        } else {
+            document.body.classList.remove("no-scroll");
+        }
+    };
+
     const cardData = [
       {
         quarter: "Q1",
@@ -58,13 +73,28 @@ export default function RoadmapCard() {
                         )): (
                             <p className="font-sm weight-400 h-24 color-3 mb-1">No Task Available</p>
                         )}
-                        <a href="" className="new-task-container">
+                        <a href="#" className="new-task-container" onClick={togglePopup}>
                             <img src="./icon/plus.svg" className="plus-icon"/>
                             <p className="font-sm weight-400 h-20 color-1">Create new task</p>
                         </a>
                     </div>
                 ))}
             </div>
+
+            {isPopupVisible && (
+                <div className={`pop-up ${isPopupVisible ? '' : 'hidden'}`}>
+                    <div className="pop-up-container">
+                        <div className="title-container mb-2">
+                            <p className="font-md weight-500 h-20 color-1">Create new task</p>
+                            <a className="close-icon" onClick={togglePopup}>
+                                <img src="./icon/close.svg" className="close-icon"/>
+                            </a>
+                        </div>
+                        <p className="font-sm weight-400 h-20 color-1">Task Title</p>
+                        <input type="text" className="task-form" />
+                    </div>
+                </div>
+            )}
         </>
     );
 }
