@@ -90,8 +90,19 @@ export default function RoadmapCard() {
                                 <img src="./icon/close.svg" className="close-icon"/>
                             </a>
                         </div>
-                        <p className="font-sm weight-400 h-20 color-1">Task Title</p>
-                        <input type="text" className="task-form" />
+                        <div className="mb-1">
+                            <p className="font-sm weight-500 h-20 color-1">Task Title</p>
+                            <input type="text" className="task-form" placeholder="Enter the task title"/>
+                        </div>
+                        <div className="mb-2">
+                            <p className="font-sm weight-500 h-20 color-1">Progress</p>
+                            <input type="text" className="task-form" placeholder="Enter the progress (0%)"/>
+                        </div>
+                        <div className="next-container">
+                            <a href="" className="arrow-right-icon">
+                                <img src="./icon/arrow-right.svg" className="arrow-right-icon" />
+                            </a>
+                        </div>
                     </div>
                 </div>
             )}
