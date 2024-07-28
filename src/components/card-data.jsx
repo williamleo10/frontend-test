@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function RoadmapCard() {
     const [isPopupVisible, setIsPopupVisible] = useState(false);
+    const [activeDropdownIndex, setActiveDropdownIndex] = useState(null);
+    const dropdownRef = useRef(null);
 
     const togglePopup = () => {
         setIsPopupVisible(!isPopupVisible);
@@ -13,6 +15,27 @@ export default function RoadmapCard() {
             document.body.classList.remove("no-scroll");
         }
     };
+
+    const toggleDropdown = (index) => {
+        if (activeDropdownIndex === index) {
+            setActiveDropdownIndex(null);
+        } else {
+            setActiveDropdownIndex(index);
+        }
+    };
+
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setActiveDropdownIndex(null);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     const cardData = [
       {
@@ -65,9 +88,27 @@ export default function RoadmapCard() {
                                     <div className="progress-container">
                                         <img src="./icon/weight.svg" className="weight-icon"/>
                                         <p className="font-xs weight-400 height-16 color-2">{task.progress}</p>
-                                        <a href="#" className="more-icon">
+                                        <a href="#" className="more-icon" onClick={() => toggleDropdown(`${index}-${idx}`)}>
                                             <img src="./icon/more.svg"/>
                                         </a>
+                                        {/* Dropdown */}
+                                        {activeDropdownIndex === `${index}-${idx}` && (
+                                            <div
+                                                ref={dropdownRef}
+                                                className="dropdown-container"
+                                            >
+                                                <div className="dropdown-list">
+                                                    <a href="#" className="dropdown-menu">
+                                                        <img src="./icon/delete.svg" className="dropdown-icon" />
+                                                        <span className="font-sm weight-400 h-20 color-1">Delete</span>
+                                                    </a>
+                                                    <a href="#" className="dropdown-menu">
+                                                        <img src="./icon/complete.svg" className="dropdown-icon" />
+                                                        <span className="font-sm weight-400 h-20 color-1">Complete</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             )
